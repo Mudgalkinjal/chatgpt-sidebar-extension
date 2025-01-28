@@ -1,0 +1,28 @@
+{
+  "name": "ChatGPT Sidebar",
+  "version": "1.0",
+  "description": "A Chrome Extension that injects a ChatGPT-powered sidebar",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.bundle.js"]
+    }
+  ],
+  "action": {
+    "default_title": "ChatGPT Sidebar"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar.html", "sidebar.css", "sidebar.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
